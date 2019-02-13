@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 rnd = np.random
 rnd.seed(0)
 
-n = 25
-Q = 20
+n = 15
+Q = 15
 N = [i for i in range(1, n+1)]
 V = [0] + N
 q = {i:rnd.randint(1,10) for i in N}
