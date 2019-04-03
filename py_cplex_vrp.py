@@ -9,7 +9,7 @@ import os
 rnd = np.random
 rnd.seed(0)
 
-n = 15
+n = 25
 Q = 15
 N = [i for i in range(1, n+1)]
 V = [0] + N
@@ -29,7 +29,7 @@ x = mdl.binary_var_dict(A, name= 'x')
 u = mdl.continuous_var_dict(N, ub= Q, name= 'u')
 
 # Define objective function:
-mdl.minimize(mdl.sum(c[i,j]*x[i,j] for i, j in A))
+mdl.minimize(mdl.sumsq(c[i,j]*x[i,j] for i, j in A))
 
 # Add constraints:
 mdl.add_constraints(mdl.sum(x[i,j] for j in V if j != i) == 1 for i in N) # Each point must be visited
