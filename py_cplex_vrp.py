@@ -2,6 +2,9 @@ import numpy as np
 from docplex.mp.model import Model
 import matplotlib.pyplot as plt
 
+import sys
+import os
+
 # Define a problem:
 rnd = np.random
 rnd.seed(0)
@@ -37,6 +40,7 @@ mdl.add_constraints(u[i] >= q[i] for i in N)
 
 # Solving model:
 solution = mdl.solve(log_output=True)
+
 # print(solution)
 print(solution.solve_status) # Returns if the solution is Optimal or just Feasible
 
